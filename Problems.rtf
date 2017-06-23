@@ -1,0 +1,236 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Verdana;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red55\green55\blue55;\red255\green255\blue255;\red76\green76\blue76;
+\red26\green26\blue26;\red246\green246\blue246;\red46\green46\blue46;\red234\green234\blue234;\red3\green40\blue67;
+}
+{\*\expandedcolortbl;;\cssrgb\c27843\c27843\c27843;\cssrgb\c100000\c100000\c100000;\cssrgb\c36863\c36863\c36863;
+\cssrgb\c13333\c13333\c13333;\cssrgb\c97255\c97255\c97255;\cssrgb\c23529\c23529\c23529;\cssrgb\c93333\c93333\c93333;\cssrgb\c0\c21176\c33333;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid2\'02\'01.;}{\levelnumbers\'01;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl453\sa200\partightenfactor0
+
+\f0\fs32\fsmilli16200 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Problem 1 - Is the Word Guessed\
+\pard\pardeftab720\sl260\partightenfactor0
+
+\fs21 \cf4 \strokec4 10.0 points possible (graded)\
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\fs32 \cf5 \strokec5 Please read the Hangman Introduction before starting this problem. We'll start by writing 3 simple functions that will help us easily code the Hangman problem. First, implement the function\'a0
+\f1\fs28\fsmilli14400 \cb6 isWordGuessed
+\f0\fs32 \cb3 \'a0that takes in two parameters - a string,\'a0
+\f1\fs28\fsmilli14400 \cb6 secretWord
+\f0\fs32 \cb3 , and a list of letters,\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 . This function returns a boolean -\'a0
+\f1\fs28\fsmilli14400 \cb6 True
+\f0\fs32 \cb3 \'a0if\'a0
+\f1\fs28\fsmilli14400 \cb6 secretWord
+\f0\fs32 \cb3 \'a0has been guessed (ie, all the letters of\'a0
+\f1\fs28\fsmilli14400 \cb6 secretWord
+\f0\fs32 \cb3 \'a0are in\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 ) and\'a0
+\f1\fs28\fsmilli14400 \cb6 False
+\f0\fs32 \cb3 otherwise.\cb1 \
+\cb3 Example Usage:\cb1 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf5 \cb6 >>> secretWord = 'apple' \
+>>> lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']\
+>>> print(isWordGuessed(secretWord, lettersGuessed))\
+False\
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\f0\fs32 \cf5 \cb3 For this function, you may assume that all the letters in\'a0
+\f1\fs28\fsmilli14400 \cb6 secretWord
+\f0\fs32 \cb3 \'a0and\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 \'a0are lowercase.\
+\
+\pard\pardeftab720\sl453\sa200\partightenfactor0
+
+\fs32\fsmilli16200 \cf2 \strokec2 Problem 2 - Printing Out the User's Guess\
+\pard\pardeftab720\sl260\partightenfactor0
+
+\fs21 \cf4 \strokec4 10.0 points possible (graded)\
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\fs32 \cf5 \strokec5 Next, implement the function\'a0
+\f1\fs28\fsmilli14400 \cb6 getGuessedWord
+\f0\fs32 \cb3 \'a0that takes in two parameters - a string,\'a0
+\f1\fs28\fsmilli14400 \cb6 secretWord
+\f0\fs32 \cb3 , and a list of letters,\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 . This function returns a string that is comprised of letters and underscores, based on what letters in\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 \'a0are in\'a0
+\f1\fs28\fsmilli14400 \cb6 secretWord
+\f0\fs32 \cb3 . This shouldn't be too different from\'a0
+\f1\fs28\fsmilli14400 \cb6 isWordGuessed
+\f0\fs32 \cb3 !\cb1 \
+\cb3 Example Usage:\cb1 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf5 \cb6 >>> secretWord = 'apple' \
+>>> lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']\
+>>> print(getGuessedWord(secretWord, lettersGuessed))\
+'_ pp_ e'\
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\f0\fs32 \cf5 \cb3 When inserting underscores into your string, it's a good idea to add at least a space after each one, so it's clear to the user how many unguessed letters are left in the string (compare the readability of\'a0
+\f1\fs28\fsmilli14400 \cb6 ____
+\f0\fs32 \cb3 \'a0with\'a0
+\f1\fs28\fsmilli14400 \cb6 _ _ _ _\'a0
+\f0\fs32 \cb3 ). This is called\'a0
+\i usability
+\i0 \'a0- it's very important, when programming, to consider the usability of your program. If users find your program difficult to understand or operate, they won't use it!\cb1 \
+\cb3 For this problem, you are free to use spacing in any way you wish - our grader will only check that the letters and underscores are in the proper order; it will not look at spacing. We do encourage you to think about usability when designing.\cb1 \
+\cb3 For this function, you may assume that all the letters in\'a0
+\f1\fs28\fsmilli14400 \cb6 secretWord
+\f0\fs32 \cb3 \'a0and\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 \'a0are lowercase.\cb1 \
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+\cf5 \cb3 \
+\pard\pardeftab720\sl453\sa200\partightenfactor0
+
+\fs32\fsmilli16200 \cf2 \strokec2 Problem 3 - Printing Out all Available Letters\
+\pard\pardeftab720\sl260\partightenfactor0
+
+\fs21 \cf4 \strokec4 10.0 points possible (graded)\
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\fs32 \cf5 \strokec5 Next, implement the function\'a0
+\f1\fs28\fsmilli14400 \cb6 getAvailableLetters
+\f0\fs32 \cb3 \'a0that takes in one parameter - a list of letters,\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 . This function returns a string that is comprised of lowercase English letters - all lowercase English letters that are\'a0
+\b not
+\b0 \'a0in\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 .\cb1 \
+\cb3 Example Usage:\cb1 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf5 \cb6 >>> lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']\
+>>> print(getAvailableLetters(lettersGuessed))\
+abcdfghjlmnoqtuvwxyz\
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\f0\fs32 \cf5 \cb3 Note that this function should return the letters in alphabetical order, as in the example above.\cb1 \
+\cb3 For this function, you may assume that all the letters in\'a0
+\f1\fs28\fsmilli14400 \cb6 lettersGuessed
+\f0\fs32 \cb3 \'a0are lowercase.\cb1 \
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\b \cf5 \cb3 Hint:
+\b0 \'a0You might consider using\'a0
+\f1\fs28\fsmilli14400 \cb6 string.ascii_lowercase
+\f0\fs32 \cb3 , which is a string comprised of all lowercase letters:\cb1 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f1\fs28\fsmilli14400 \cf5 \cb6 >>> import string\
+>>> print(string.ascii_lowercase)\
+abcdefghijklmnopqrstuvwxyz\
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\f0\fs32 \cf5 \cb3 \
+\
+\pard\pardeftab720\sl453\sa200\partightenfactor0
+
+\fs32\fsmilli16200 \cf2 \strokec2 Problem 4 - The Game\
+\pard\pardeftab720\sl260\partightenfactor0
+
+\fs21 \cf4 \strokec4 15.0 points possible (graded)\
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+
+\fs32 \cf5 \strokec5 Now you will implement the function\'a0
+\f1\fs28\fsmilli14400 \cb6 hangman
+\f0\fs32 \cb3 , which takes one parameter - the\'a0
+\f1\fs28\fsmilli14400 \cb6 secretWord
+\f0\fs32 \cb3 \'a0the user is to guess. This starts up an interactive game of Hangman between the user and the computer. Be sure you take advantage of the three helper functions,\'a0
+\f1\fs28\fsmilli14400 \cb6 isWordGuessed
+\f0\fs32 \cb3 ,\'a0
+\f1\fs28\fsmilli14400 \cb6 getGuessedWord
+\f0\fs32 \cb3 , and\'a0
+\f1\fs28\fsmilli14400 \cb6 getAvailableLetters
+\f0\fs32 \cb3 , that you've defined in the previous part.\cb1 \
+\pard\pardeftab720\sl460\partightenfactor0
+
+\fs38\fsmilli19200 \cf7 \cb3 \strokec7 Hints:\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl448\sa453\partightenfactor0
+\ls1\ilvl0
+\fs32 \cf5 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 You should start by noticing where we're using the provided functions (at the top of\'a0
+\f1\fs28\fsmilli14400 \cb6 ps3_hangman.py
+\f0\fs32 \cb3 ) to load the words and pick a random one. Note that the functions\'a0
+\f1\fs28\fsmilli14400 \cb6 loadWords
+\f0\fs32 \cb3 \'a0and\'a0
+\f1\fs28\fsmilli14400 \cb6 chooseWord
+\f0\fs32 \cb3 \'a0should only be used on your local machine, not in the tutor. When you enter in your solution in the tutor, you only need to give your\'a0
+\f1\fs28\fsmilli14400 \cb6 hangman
+\f0\fs32 \cb3 \'a0function.\cb1 \uc0\u8232 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 Consider using\'a0
+\f1\fs28\fsmilli14400 \cb6 lower()
+\f0\fs32 \cb3 \'a0to convert user input to lower case. For example:\cb1 \uc0\u8232 
+\f1\fs28\fsmilli14400 \cb6 guess = 'A'\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl400\partightenfactor0
+\ls1\ilvl0\cf5 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 guessInLowerCase = guess.lower()\uc0\u8232 
+\f0\fs32 \cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl448\sa453\partightenfactor0
+\ls1\ilvl0\cf5 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 Consider writing additional helper functions if you need them!\cb1 \uc0\u8232 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 There are four important pieces of information you may wish to store:\cb1 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl448\sa226\partightenfactor0
+\ls1\ilvl1
+\f1\fs28\fsmilli14400 \cf5 \cb6 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 secretWord
+\f0\fs32 \cb3 : The word to guess.\cb1 \
+\ls1\ilvl1
+\f1\fs28\fsmilli14400 \cb6 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 lettersGuessed
+\f0\fs32 \cb3 : The letters that have been guessed so far.\cb1 \
+\ls1\ilvl1
+\f1\fs28\fsmilli14400 \cb6 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 mistakesMade
+\f0\fs32 \cb3 : The number of incorrect guesses made so far.\cb1 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl448\partightenfactor0
+\ls1\ilvl1
+\f1\fs28\fsmilli14400 \cf5 \cb6 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 availableLetters
+\f0\fs32 \cb3 : The letters that may still be guessed. Every time a player guesses a letter, the guessed letter must be removed from\'a0
+\f1\fs28\fsmilli14400 \cb6 availableLetters
+\f0\fs32 \cb3 \'a0(and if they guess a letter that is not in\'a0
+\f1\fs28\fsmilli14400 \cb6 availableLetters
+\f0\fs32 \cb3 , you should print a message telling them they've already guessed that - so try again!).\cb1 \
+\pard\pardeftab720\sl384\partightenfactor0
+
+\b \cf7 \cb8 \strokec7 \shad\shadx0\shady-20\shadr0\shado255 \shadc0 Sample Output\
+\pard\pardeftab720\sl380\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://courses.edx.org/courses/course-v1:MITx+6.00.1x+2T2017/courseware/530b7f9a82784d0cb57de334828e3050/bfe9eb02884a4812883ff9e543887968/?activate_block_id=block-v1%3AMITx%2B6.00.1x%2B2T2017%2Btype%40sequential%2Bblock%40bfe9eb02884a4812883ff9e543887968#"}}{\fldrslt 
+\b0 \cf9 \cb6 \strokec9 \shad0 The output of a winning game should look like this...}}
+\b0 \cf9 \cb6 \strokec9 \shad0 \
+{\field{\*\fldinst{HYPERLINK "https://courses.edx.org/courses/course-v1:MITx+6.00.1x+2T2017/courseware/530b7f9a82784d0cb57de334828e3050/bfe9eb02884a4812883ff9e543887968/?activate_block_id=block-v1%3AMITx%2B6.00.1x%2B2T2017%2Btype%40sequential%2Bblock%40bfe9eb02884a4812883ff9e543887968#"}}{\fldrslt And the output of a losing game should look like this...}}\
+\cf5 \cb1 \strokec5 \
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+\cf5 \cb3 Note that if you choose to use the helper functions\'a0
+\f1\fs28\fsmilli14400 \cb6 isWordGuessed
+\f0\fs32 \cb3 ,\'a0
+\f1\fs28\fsmilli14400 \cb6 getGuessedWord
+\f0\fs32 \cb3 , or\'a0
+\f1\fs28\fsmilli14400 \cb6 getAvailableLetters
+\f0\fs32 \cb3 , you do not need to paste your definitions in the box. We have supplied our implementations of these functions for your use in this part of the problem. If you use additional helper functions, you will need to paste those definitions here.\cb1 \
+\cb3 Your function should include calls to\'a0
+\f1\fs28\fsmilli14400 \cb6 input
+\f0\fs32 \cb3 \'a0to get the user's guess.\cb1 \
+\pard\pardeftab720\sl380\sa453\partightenfactor0
+\cf5 \cb3 \
+\cb1 \
+}

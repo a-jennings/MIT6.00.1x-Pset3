@@ -1,0 +1,134 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Verdana;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red46\green46\blue46;\red255\green255\blue255;\red12\green100\blue174;
+}
+{\*\expandedcolortbl;;\cssrgb\c23529\c23529\c23529;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c47451\c73725;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid102\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl512\sa453\partightenfactor0
+
+\f0\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Note: Do not be intimidated by this problem! It's actually easier than it looks. We will 'scaffold' this problem, guiding you through the creation of helper functions before you implement the actual game.\
+For this problem, you will implement a variation of the classic wordgame Hangman. For those of you who are unfamiliar with the rules, you may read all about it\'a0{\field{\*\fldinst{HYPERLINK "http://en.wikipedia.org/wiki/Hangman%20%28game%29"}}{\fldrslt \cf4 \strokec4 here}}. In this problem, the second player will always be the computer, who will be picking a word at random.\
+In this problem, you will implement a\'a0
+\b function
+\b0 , called\'a0
+\f1 hangman
+\f0 , that will start up and carry out an interactive Hangman game between a player and the computer. Before we get to this function, we'll first implement a few helper functions to get you going.\
+For this problem, you will need the code files\'a0{\field{\*\fldinst{HYPERLINK "https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/2dc6d29d0b7e8620e53d286dd9213a88/asset-v1:MITx+6.00.1x+2T2017+type@asset+block/ps3_hangman.py"}}{\fldrslt 
+\f1 \cf4 \strokec4 ps3_hangman.py}}\'a0and\'a0{\field{\*\fldinst{HYPERLINK "https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/b537aed0f6d1e3c4a25fa1e640533c85/asset-v1:MITx+6.00.1x+2T2017+type@asset+block/words.txt"}}{\fldrslt 
+\f1 \cf4 \strokec4 words.txt}}
+\f1 .
+\f0 \'a0Right-click on each and hit "Save Link As".\'a0
+\b Be sure to save them in same directory.
+\b0 \'a0Open and run the file\'a0
+\f1 ps3_hangman.py
+\f0 \'a0without making any modifications to it, in order to ensure that everything is set up correctly. By "open and run" we mean do the following:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl448\sa226\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Go to your IDE. From the File menu, choose "Open".\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Find the file\'a0
+\f1 ps3_hangman.py
+\f0 \'a0and choose it.\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The template\'a0
+\f1 ps3_hangman.py
+\f0 \'a0file should now be open.\'a0Run the file.\cb1 \
+\pard\pardeftab720\sl512\sa453\partightenfactor0
+\cf2 \cb3 The code we have given you loads in a list of words from a file. If everything is working okay, after a small delay, you should see the following printed out:
+\f1 \
+\pard\pardeftab720\sl448\partightenfactor0
+\cf2 Loading word list from file...\
+55909 words loaded.\
+\pard\pardeftab720\sl512\sa453\partightenfactor0
+
+\f0 \cf2 If you see an\'a0
+\f1 IOError
+\f0 \'a0instead (e.g., "No such file or directory"), you should change the value of the\'a0
+\f1 WORDLIST_FILENAME
+\f0 \'a0constant (defined near the top of the file) to the\'a0
+\b complete
+\b0 \'a0pathname for the file\'a0
+\f1 words.txt
+\f0 \'a0(This will vary based on where you saved the file). Windows users, change the backslashes to forward slashes, like below.\
+For example, if you saved\'a0
+\f1 ps3_hangman.py
+\f0 \'a0and\'a0
+\f1 words.txt
+\f0 \'a0in the directory "C:/Users/Ana/" change the line:\'a0\
+\pard\pardeftab720\sl448\sa453\partightenfactor0
+
+\f1 \cf2 WORDLIST_FILENAME = "words.txt"
+\f0 \'a0 to something like\
+\pard\pardeftab720\sl512\sa453\partightenfactor0
+
+\f1 \cf2 WORDLIST_FILENAME = "C:/Users/Ana/words.txt"
+\f0 \
+\pard\pardeftab720\sl512\sa453\partightenfactor0
+
+\b \cf2 This folder will vary depending on where you saved the files.
+\b0 \
+The file\'a0
+\f1 ps3_hangman.py
+\f0 \'a0has a number of already implemented functions you can use while writing up your solution. You can ignore the code between the following comments, though you should read and understand how to use each helper function by reading the docstrings:
+\f1 \
+\pard\pardeftab720\sl448\partightenfactor0
+\cf2  \
+# -----------------------------------\
+# Helper code\
+# You don't need to understand this helper code,\
+# but you will have to know how to use the functions\
+# (so be sure to read the docstrings!)\
+    .\
+    .\
+    .\
+# (end of helper code)\
+# -----------------------------------\
+   \
+\pard\pardeftab720\sl512\sa453\partightenfactor0
+
+\f0 \cf2 You will want to do all of your coding for this problem within this file as well because you will be writing a program that depends on each function you write.\
+\pard\pardeftab720\sl448\sa200\partightenfactor0
+
+\b \cf2 Requirements\
+\pard\pardeftab720\sl512\sa453\partightenfactor0
+
+\b0 \cf2 Here are the requirements for your game:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl512\sa453\partightenfactor0
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The computer must select a word at random from the list of available words that was provided in\'a0
+\f1 words.txt
+\f0 . The functions for loading the word list and selecting a random word have already been provided for you in\'a0
+\f1 ps3_hangman.py
+\f0 .\cb1 \uc0\u8232 \
+\ls2\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The game must be interactive; the flow of the game should go as follows:\cb1 \
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl512\sa453\partightenfactor0
+\ls2\ilvl1\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 At the start of the game, let the user know how many letters the computer's word contains.\cb1 \uc0\u8232 \
+\ls2\ilvl1\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Ask the user to supply one guess (i.e. letter) per round.\cb1 \uc0\u8232 \
+\ls2\ilvl1\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The user should receive feedback immediately after each guess about whether their guess appears in the computer's word.\cb1 \uc0\u8232 \
+\ls2\ilvl1\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 After each round, you should also display to the user the partially guessed word so far, as well as letters that the user has not yet guessed.\cb1 \uc0\u8232 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl448\sa226\partightenfactor0
+\ls2\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Some additional rules of the game:\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl512\sa453\partightenfactor0
+\ls2\ilvl1\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 A user is allowed 8 guesses. Make sure to remind the user of how many guesses s/he has left after each round. Assume that players will only ever submit one character at a time (A-Z).\cb1 \uc0\u8232 \
+\ls2\ilvl1\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 A user loses a guess\'a0
+\b only
+\b0 \'a0when s/he guesses incorrectly.\cb1 \uc0\u8232 \
+\ls2\ilvl1\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 If the user guesses the same letter twice, do not take away a guess - instead, print a message letting them know they've already guessed that letter and ask them to try again.\cb1 \uc0\u8232 \
+\ls2\ilvl1\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The game should end when the user constructs the full word or runs out of guesses. If the player runs out of guesses (s/he "loses"), reveal the word to the user when the game ends.\cb1 \uc0\u8232 \
+}
