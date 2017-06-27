@@ -1,5 +1,6 @@
 secretWord = 'apple'
 lettersGuessed = ['e', 'i', 'k', 'p', 'r', 's']
+test = ['x','y']
 
 
 
@@ -12,18 +13,21 @@ def getGuessedWord(secretWord, lettersGuessed):
     '''
     # FILL IN YOUR CODE HERE...
 
-    dict = {}
-    for x in range(len(secretWord)):
-        dict[x] = secretWord[x]
-            
-            
+    word = []
+    result = []
+    under = '_ '
+    #converts secretWord into list of individual characters
+    for char in secretWord:
+        word.append(char)
+
+    
+    for x in word:
+        if x in lettersGuessed:
+            result.append(x)
+        elif x not in lettersGuessed:
+            result.append(under)
+    return ''.join(result)
 
 
-
-
-
-
-
-
-print(getGuessedWord(secretWord, lettersGuessed))
+print(getGuessedWord(secretWord, test))
 
