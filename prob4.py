@@ -83,8 +83,46 @@ def chooseWord(wordlist):
 
 wordlist = loadWords()
 
-def hangman(secretWord)
+def hangman(secretWord):
+    print('Welcome to the game, Hangman!')
+    print('I am thinking of a word that is ' +str(len(secretWord)) + ' letters long.')
+    
+    game_over = True
 
+   
+
+        #Game text
+    guesses = 8
+    lettersGuessed = []
+    while game_over:
+        print('______________')
+        print('You have ' + str(guesses) + ' guesses left.')
+        print('Available letters: ' + str(getAvailableLetters(lettersGuessed)))
+        letter = input('Please guess a letter: ')
+
+        #Logic
+
+        lettersGuessed.append(letter)
+        
+        if guesses > 0:
+            if isWordGuessed(secretWord, lettersGuessed):
+                print('Congratulations you won!')
+
+            else:
+                if letter in secretWord:
+                    print('Good guess: ' + str(getGuessedWord(secretWord, lettersGuessed)))
+                else:
+                    print('Oops! That letter is not in my word: '+ str(getGuessedWord(secretWord, lettersGuessed)))
+                    guesses -=1
+
+                
+
+
+        if guesses == 0:
+            print('Sorry, you ran out of guesses. The word was ' + str(secretWord))
+            game_over = False
+
+        
 
 
 
@@ -103,8 +141,8 @@ def hangman(secretWord)
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-# secretWord = chooseWord(wordlist).lower()
-# hangman(secretWord)
+secretWord = chooseWord(wordlist).lower()
+hangman(secretWord)
 
 
 
