@@ -107,29 +107,30 @@ def hangman(secretWord):
         #Logic
 
         if letter in lettersGuessed:
-            print('Oops! You\'ve already guessed that letter: ')
+            print('Oops! You\'ve already guessed that letter: ' + str(getGuessedWord(secretWord, lettersGuessed)))
             continue
         
         lettersGuessed.append(letter)
         
         if guesses > 0:
-            if isWordGuessed(secretWord, lettersGuessed):
-                print('Congratulations you won!')
-                game_over = False
+            if letter in secretWord:
+                print('Good guess: ' + str(getGuessedWord(secretWord, lettersGuessed)))
+
 
             else:
-                if letter in secretWord:
-                    print('Good guess: ' + str(getGuessedWord(secretWord, lettersGuessed)))
+                print('Oops! That letter is not in my word: '+ str(getGuessedWord(secretWord, lettersGuessed)))
+                guesses -=1
 
-
-                else:
-                    print('Oops! That letter is not in my word: '+ str(getGuessedWord(secretWord, lettersGuessed)))
-                    guesses -=1
+        if isWordGuessed(secretWord, lettersGuessed):
+                print('______________')
+                print('Congratulations you won!')
+                game_over = False
 
                 
 
 
         if guesses == 0:
+            print('______________')
             print('Sorry, you ran out of guesses. The word was ' + str(secretWord))
             game_over = False
 
@@ -152,8 +153,7 @@ def hangman(secretWord):
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-#secretWord = chooseWord(wordlist).lower()
-secretWord = 'c'
+secretWord = chooseWord(wordlist).lower()
 hangman(secretWord)
 
 
