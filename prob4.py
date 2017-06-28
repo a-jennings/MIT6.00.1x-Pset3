@@ -96,21 +96,32 @@ def hangman(secretWord):
     lettersGuessed = []
     while game_over:
         print('______________')
+        
+
+
+
         print('You have ' + str(guesses) + ' guesses left.')
         print('Available letters: ' + str(getAvailableLetters(lettersGuessed)))
         letter = input('Please guess a letter: ')
 
         #Logic
 
+        if letter in lettersGuessed:
+            print('Oops! You\'ve already guessed that letter: ')
+            continue
+        
         lettersGuessed.append(letter)
         
         if guesses > 0:
             if isWordGuessed(secretWord, lettersGuessed):
                 print('Congratulations you won!')
+                game_over = False
 
             else:
                 if letter in secretWord:
                     print('Good guess: ' + str(getGuessedWord(secretWord, lettersGuessed)))
+
+
                 else:
                     print('Oops! That letter is not in my word: '+ str(getGuessedWord(secretWord, lettersGuessed)))
                     guesses -=1
@@ -141,7 +152,8 @@ def hangman(secretWord):
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-secretWord = chooseWord(wordlist).lower()
+#secretWord = chooseWord(wordlist).lower()
+secretWord = 'c'
 hangman(secretWord)
 
 
